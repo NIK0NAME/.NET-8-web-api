@@ -18,7 +18,7 @@ public static class UserService
 
     public static List<User> GetAll() => Users;
 
-    public static User Get(int id) => Users.FirstOrDefault(u => u.id == id);
+    public static User? Get(int id) => Users.FirstOrDefault(u => u.id == id);
 
     public static void Add(User user)
     {
