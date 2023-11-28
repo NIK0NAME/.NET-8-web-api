@@ -1,0 +1,11 @@
+version: '3.8'
+name: 'dot-net-api-sample'
+
+services:
+  db:
+    container_name: dot-net-api-database
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: toor
