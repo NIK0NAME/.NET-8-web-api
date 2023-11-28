@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "e7e2d0fb-3ad2-4742-8118-33243568b28c",
+    "name": "local",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-11-28T09:33:10.078Z",
+    "modified": "2023-11-28T09:33:10.078Z",
+    "data": [
+      {
+        "name": "url",
+        "value": "http://0.0.0.0:5206"
+      }
+    ]
+  }
+]

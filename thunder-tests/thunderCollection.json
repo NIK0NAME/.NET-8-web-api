@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "abd53e38-d025-4cfa-9327-04b81ac9067a",
+    "colName": "common",
+    "created": "2023-11-28T09:32:35.033Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "79d0dd0e-be0a-45cc-912f-6b8eaeed7acb",
+        "name": "User",
+        "containerId": "",
+        "created": "2023-11-28T09:32:42.603Z",
+        "sortNum": 10000
+      }
+    ]
+  }
+]
