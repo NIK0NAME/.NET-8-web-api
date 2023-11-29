@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using WebApi.Models;
+using WebApi.Models.Repository;
 
 internal class Program
 {
@@ -14,6 +15,8 @@ internal class Program
 
             options.UseSqlServer(connectionString);
         });
+
+        builder.Services.AddTransient<IUserRepository, UserRepository>();
 
         builder.Services.AddControllers();
         builder.Services.AddCors(options => { });

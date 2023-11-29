@@ -1,46 +1,36 @@
 using WebApi.Models;
+using WebApi.Models.Repository;
 
 namespace WebApi.Services;
 
-public static class UserService
+public class UserService
 {
-    static List<User> Users { get; }
-    static int nextId = 3;
+    private UserRepository _userRepository;
 
-    static UserService()
-    {
-        Users = new List<User>
-        {
-            new User{ id = 1, username = "antonio", email = "ant@hotmail.com", avatar = "None", birthDate = "1994/04/23" },
-            new User{ id = 2, username = "Wanillou", email = "wan@gmail.com", avatar = "None", birthDate = "1995/08/03" },
-        };
+    public UserService(UserRepository userRepository)
+    {   _userRepository = userRepository;
+
     }
 
-    public static List<User> GetAll() => Users;
+    public IEnumerable<UserModel> GetAll() =>  _userRepository.GetUsers();
 
-    public static User? Get(int id) => Users.FirstOrDefault(u => u.id == id);
-
-    public static void Add(User user)
+    public User? Get(int id)
     {
-        user.id = nextId++;
-        Users.Add(user);
+        throw new NotImplementedException();
     }
 
-    public static void Delete(int id)
+    public  void Add(User user)
     {
-        var user = Get(id);
-
-        if (user is null) return;
-
-        Users.Remove(user);
+        throw new NotImplementedException();
     }
 
-    public static void Update(User user)
+    public void Delete(int id)
     {
-        var index = Users.FindIndex(u => u.id == user.id);
+        throw new NotImplementedException();
+    }
 
-        if (index == -1) return;
-
-        Users[index] = user;
+    public void Update(User user)
+    {
+        throw new NotImplementedException();
     }
 }

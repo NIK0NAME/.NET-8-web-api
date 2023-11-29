@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
+using WebApi.Models.Repository;
 using WebApi.Services;
 
 namespace WebApi.Controllers;
@@ -9,30 +10,37 @@ namespace WebApi.Controllers;
 public class UserController : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
+    private IUserRepository _userRepository;
 
-    public UserController(ILogger<UserController> logger)
+    public UserController(
+        ILogger<UserController> logger,
+        IUserRepository userRepository
+    )
     {
         _logger = logger;
+        _userRepository = userRepository;
     }
 
     [HttpGet(Name = "GetUsers")]
-    public ActionResult<List<User>> GetAll() => UserService.GetAll();
+    public IEnumerable<UserModel> GetAll() => _userRepository.GetUsers();
 
     [HttpGet("{id}")]
     public ActionResult<User> Get(int id)
     {
-        var user = UserService.Get(id);
+        throw new NotImplementedException();
+        // var user = _userRepository.Get(id);
 
-        if (user == null) return NotFound();
+        // if (user == null) return NotFound();
 
-        return user;
+        // return user;
     }
 
     [HttpPost]
     public ActionResult Create(User user)
     {
-        UserService.Add(user);
-        return CreatedAtAction(nameof(Get), new { id = user.id }, user);
+        throw new NotImplementedException();
+        // _userRepository.Add(user);
+        // return CreatedAtAction(nameof(Get), new { id = user.id }, user);
     }
 
     [HttpPut("{id}")]
@@ -40,24 +48,27 @@ public class UserController : ControllerBase
     {
         if (id != user.id) return BadRequest();
 
-        var existingUser = UserService.Get(id);
+        throw new NotImplementedException();
 
-        if (existingUser == null) return NotFound();
+        // var existingUser = _userRepository.Get(id);
 
-        UserService.Update(user);
+        // if (existingUser == null) return NotFound();
 
-        return NoContent();
+        // _userRepository.Update(user);
+
+        // return NoContent();
     }
 
     [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
-        var user = UserService.Get(id);
+        throw new NotImplementedException();
+        // var user = _userRepository.Get(id);
 
-        if (user == null) return NotFound();
+        // if (user == null) return NotFound();
 
-        UserService.Delete(id);
+        // _userRepository.Delete(id);
 
-        return NoContent();
+        // return NoContent();
     }
 }
