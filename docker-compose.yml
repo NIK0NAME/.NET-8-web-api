@@ -2,10 +2,19 @@ version: '3.8'
 name: 'dot-net-api-sample'
 
 services:
-  db:
-    container_name: dot-net-api-database
-    image: mariadb
+  # db:
+  #   container_name: dot-net-api-database
+  #   image: mariadb
+  #   ports:
+  #     - 3306:3306
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: toor
+  sql-server:
+    container_name: dot-net-api-sql-server
+    image: mcr.microsoft.com/mssql/server
     ports:
-      - 3306:3306
+      - 1433:1433
     environment:
-      MARIADB_ROOT_PASSWORD: toor
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'to0rTug@'
+      MSSQL_PID: 'Developer'

@@ -8,9 +8,11 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<MariaDbContext>(options => {
+        builder.Services.AddDbContext<ApplicationDbContext>(options => {
             var connectionString = builder.Configuration.GetConnectionString("MariaDbConnectionString");
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            Console.WriteLine("this is a connection string: " + connectionString);
+
+            options.UseSqlServer(connectionString);
         });
 
         builder.Services.AddControllers();
