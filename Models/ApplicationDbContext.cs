@@ -8,6 +8,8 @@ public class ApplicationDbContext : DbContext
     {
     }
 
+    public DbSet<UserModel> Users { get; set; }
+
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // {
     //     optionsBuilder.UseMySql(_connectionString);
